@@ -12,8 +12,9 @@ const ResultPage = () => {
 
   // 카카오 API 초기화
   useEffect(() => {
-    Kakao.init("892aa57f49e10b694c9ae263e259c40f");
-    Kakao.isInitialized();
+    if (!Kakao.isInitialized()) {
+      Kakao.init("892aa57f49e10b694c9ae263e259c40f");
+    }
   }, []);
 
   const shareKaKao = () => {

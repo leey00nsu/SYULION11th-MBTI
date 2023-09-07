@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { questionData } from "../assets/data/questionData";
+import { questionData } from "../constants/questionData";
 import { useNavigate } from "react-router-dom";
 
 const QuestionPage = () => {
@@ -62,14 +62,19 @@ const QuestionPage = () => {
   };
 
   return (
-    <div>
-      <h1>{questionData[questionNum].title}</h1>
+    <div className="layout">
+      <p className="title-light">
+        Q {questionNum + 1}/{questionData.length}
+      </p>
+      <p className="title-bold">{questionData[questionNum].title}</p>
       <button
+        className="square-button"
         onClick={() => clickAnswerHandler(questionData[questionNum].type, 1)}
       >
         {questionData[questionNum].answerA}
       </button>
       <button
+        className="square-button"
         onClick={() => clickAnswerHandler(questionData[questionNum].type, 0)}
       >
         {questionData[questionNum].answerB}
